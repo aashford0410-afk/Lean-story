@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My LEAN Story | Aseaba 🎀</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #f2c4ce;
+    --rose: #e8899a;
+    --deep-rose: #c45c72;
+    --cream: #fdf6f0;
+    --warm-white: #fffaf7;
+    --charcoal: #2a2020;
+    --soft-gray: #8a7a7a;
+    --gold: #c9a96e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px 80px;
+    background: linear-gradient(160deg, #fff5f7 0%, var(--warm-white) 60%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(242,196,206,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(201,169,110,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .bow {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--deep-rose);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 8vw, 4rem);
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+    max-width: 600px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--deep-rose);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--soft-gray);
+    max-width: 400px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .scroll-hint {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: fadeInUp 1s ease 0.5s both;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--rose), transparent);
+    animation: grow 1.5s ease-in-out infinite;
+  }
+
+  @keyframes grow {
+    0%, 100% { height: 20px; opacity: 0.5; }
+    50% { height: 40px; opacity: 1; }
+  }
+
+  /* Sections */
+  section {
+    padding: 80px 24px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* Photo blocks */
+  .photo-block {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .photo-block img {
+    width: 100%;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 20px 60px rgba(42,32,32,0.12);
+  }
+
+  .photo-caption {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 500;
+  }
+
+  /* Story sections */
+  .story-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .story-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    line-height: 1.2;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+  }
+
+  .story-heading em {
+    font-style: italic;
+    color: var(--deep-rose);
+  }
+
+  .story-body {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #4a3a3a;
+    font-weight: 300;
+  }
+
+  .story-body p + p {
+    margin-top: 20px;
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    background: linear-gradient(135deg, #fff0f3, #fdf6f0);
+    border-left: 3px solid var(--rose);
+    border-radius: 0 12px 12px 0;
+    padding: 28px 28px 28px 32px;
+    margin: 40px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--charcoal);
+  }
+
+  /* Stats strip */
+  .stats-strip {
+    background: var(--charcoal);
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .stats-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--blush);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Why I love it */
+  .love-list {
+    list-style: none;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .love-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a3a3a;
+  }
+
+  .love-list li::before {
+    content: '🎀';
+    font-size: 0.85rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Video section */
+  .video-section {
+    padding: 80px 24px;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(42,32,32,0.14);
+    margin-top: 32px;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+    border-radius: 16px;
+  }
+
+  .video-placeholder {
+    background: linear-gradient(135deg, #fff0f3, #fdf6f0);
+    border: 2px dashed var(--blush);
+    border-radius: 16px;
+    padding: 48px 24px;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .video-placeholder .play-icon {
+    width: 56px; height: 56px;
+    background: var(--deep-rose);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.4rem;
+  }
+
+  .video-placeholder p {
+    font-size: 0.85rem;
+    color: var(--soft-gray);
+    letter-spacing: 0.05em;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(160deg, #fff0f3 0%, var(--warm-white) 100%);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .cta-inner {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .cta-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    color: var(--charcoal);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .cta-heading em {
+    font-style: italic;
+    color: var(--deep-rose);
+  }
+
+  .cta-sub {
+    font-size: 0.95rem;
+    color: var(--soft-gray);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--deep-rose);
+    color: white;
+    text-decoration: none;
+    padding: 18px 48px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(196,92,114,0.35);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(196,92,114,0.45);
+    background: #b54d63;
+  }
+
+  .cta-note {
+    margin-top: 20px;
+    font-size: 0.78rem;
+    color: var(--soft-gray);
+    letter-spacing: 0.05em;
+  }
+
+  /* Divider */
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--blush), var(--rose));
+    margin: 0 auto 40px;
+    border-radius: 2px;
+  }
+
+  /* Fade in animation */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    animation: fadeInUp 0.8s ease both;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="bow">🎀</div>
+  <p class="hero-eyebrow">My honest story</p>
+  <h1 class="hero-title">I Lost 30 lbs.<br>Then <em>Life Happened.</em></h1>
+  <p class="hero-sub">A military wife, mom of six, and the real story of losing myself; finding my way back.</p>
+  <div class="scroll-hint">Read my story</div>
+</div>
+
+<!-- BEFORE PHOTO -->
+<div class="photo-block" style="padding-top: 0; margin-top: -20px;">
+  <!-- REPLACE src with your actual before photo -->
+  <img src="IMG_5621.jpeg" alt="Aseaba before and after LEAN" />
+  <p class="photo-caption">Before → After my first round</p>
+</div>
+
+<!-- CHAPTER 1: THE BEGINNING -->
+<section>
+  <p class="story-label">Chapter one</p>
+  <h2 class="story-heading">7 lbs the first week.<br><em>12 the first month.</em></h2>
+  <div class="story-body">
+    <p>Last June I started taking LEAN, honestly not knowing what to expect. I had six kids, a husband in the military, and years of putting everyone else first. My body felt like a stranger to me.</p>
+    <p>Then the results started coming. 7 lbs gone the first week. 12 by the end of the month. And by the three month mark: 30 lbs total.</p>
+    <p>But more than the number on the scale, I felt something I hadn't felt in a long time. I felt like <em>myself.</em></p>
+  </div>
+
+  <div class="pull-quote">
+    <p>"I felt something I hadn't felt in a long time. I felt like myself."</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-number">7 lbs</span>
+      <span class="stat-label">Week one</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">12 lbs</span>
+      <span class="stat-label">Month one</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">30 lbs</span>
+      <span class="stat-label">3 months</span>
+    </div>
+  </div>
+</div>
+
+<!-- HOLIDAY PHOTO -->
+<div class="photo-block" style="padding-top: 80px;">
+  <!-- REPLACE src with your holiday/fell off photo -->
+  <img src="IMG_4609.jpeg" alt="Family Christmas photo" />
+  <p class="photo-caption">The holidays: hiding behind my babies</p>
+</div>
+
+<!-- CHAPTER 2: LIFE HAPPENED -->
+<section>
+  <p class="story-label">Chapter two</p>
+  <h2 class="story-heading">Then we moved.<br><em>And I fell off.</em></h2>
+  <div class="story-body">
+    <p>Life as a military family means you pivot fast. We moved, routines got disrupted, and somewhere in the chaos I stopped taking LEAN consistently.</p>
+    <p>About 10 lbs came back. And I noticed it: not just in my clothes, but in my confidence. In my energy. In how I showed up in photos.</p>
+    <p>You know that feeling when you're hiding behind someone in every picture? That was me that holiday season. Hiding behind my son. Smiling on the outside but missing who I'd been just months before.</p>
+  </div>
+
+  <div class="pull-quote">
+    <p>"I missed the freedom. The confidence. The energy. I missed me."</p>
+  </div>
+</section>
+
+<!-- CHAPTER 3: THE COMEBACK -->
+<div class="photo-block">
+  <!-- REPLACE src with your current/now photo -->
+  <img src="IMG_4813.jpeg" alt="Aseaba now" />
+  <p class="photo-caption">April restart → June results ✨</p>
+</div>
+
+<section>
+  <p class="story-label">Chapter three</p>
+  <h2 class="story-heading">April I started again.<br><em>This is June.</em></h2>
+  <div class="story-body">
+    <p>In April I made a decision: to come back to myself. I started taking LEAN again, consistently this time. No excuses.</p>
+    <p>It's now June. My original results are back. But more than that: I look and feel younger than 39. My energy shows up everywhere I do. I feel present, confident, and free around food in a way that used to feel impossible.</p>
+    <p>This isn't just a weight loss story. This is a <em>coming back to yourself</em> story.</p>
+  </div>
+</section>
+
+<!-- WHY I LOVE IT -->
+<section style="padding-top: 0;">
+  <div class="divider"></div>
+  <p class="story-label" style="text-align:center;">Why I trust it</p>
+  <h2 class="story-heading" style="text-align:center;">What makes LEAN<br><em>different for me</em></h2>
+  <ul class="love-list">
+    <li>No weird dose cycling: it fits into real mom life without a complicated schedule</li>
+    <li>No injections; just simple, clean support for my body</li>
+    <li>No side effects I had to push through; I genuinely feel good taking it</li>
+    <li>Safe as a nursing mom: that trust means everything to me as a mother of six</li>
+    <li>My energy shows up everywhere: in how I parent, how I dress, how I carry myself</li>
+  </ul>
+</section>
+
+<!-- VIDEO SECTION -->
+<div class="video-section">
+  <div class="divider"></div>
+  <p class="story-label">Watch my story</p>
+  <h2 class="story-heading">Hear it <em>in my own words</em></h2>
+  <p class="story-body" style="text-align:center; margin-bottom: 0;">I filmed my full LEAN journey so you could see it for yourself. No filter, no script; just me being real.</p>
+
+  <!-- OPTION 1: Replace YOUR_YOUTUBE_VIDEO_ID with your actual YouTube video ID -->
+  <!-- Example: if your URL is https://youtu.be/abc123xyz, the ID is abc123xyz -->
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/QhHih8oUTG4"
+      title="My LEAN Story"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <div class="bow" style="margin-bottom:12px;">🎀</div>
+    <h2 class="cta-heading">This is your<br><em>come back to yourself</em> moment.</h2>
+    <p class="cta-sub">I share LEAN because I believe in it, not because I had to. If any part of my story felt familiar, I'd love for you to try it.</p>
+    <!-- REPLACE href with your actual LEAN affiliate link -->
+    <a href="YOUR_LEAN_AFFILIATE_LINK_HERE" class="cta-btn">Shop LEAN →</a>
+    <p class="cta-note">Use my link to shop; I may earn a commission at no cost to you 🎀</p>
+  </div>
+</div>
+
+</body>
+</html>
